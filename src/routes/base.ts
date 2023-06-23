@@ -210,7 +210,17 @@ export const run = (facts: { [key: string]: any }) => {
       )?.description;
     }
     if (description) {
-      result.push(p(b(_.capitalize(key)) + ":<br/> " + description));
+      result.push(
+        p(
+          b(
+            key === "os"
+              ? "Operation system"
+              : _.capitalize(key.replaceAll("_", " "))
+          ) +
+            ":<br/> " +
+            description
+        )
+      );
     }
   });
 
